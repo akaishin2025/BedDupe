@@ -1,0 +1,7 @@
+#Bed Dupe 1.0 BETA
+#Bed Dupe es un plugin con el que se duplica con camas 
+#tambien hay un porcentaje en la cual puedes bariar segun la economia de tu server
+
+probability-percentage: 100
+
+#Command Reload "/beddupereload"

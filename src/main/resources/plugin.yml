@@ -1,0 +1,8 @@
+name: BedDupe
+version: ${project.version}
+main: me.akaishin.beddup.BedDupe
+authors: [ akaishin ]
+description: plugin de dupeo con camas brutal
+commands:
+  beddupereload:
+    usage: /beddupereload
