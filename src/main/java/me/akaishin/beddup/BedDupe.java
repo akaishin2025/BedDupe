@@ -4,11 +4,13 @@ package me.akaishin.beddup;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.*;
 
@@ -17,10 +19,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public final class BedDupe extends JavaPlugin {
+public final class BedDupe extends JavaPlugin { // PLUGIN CREADO POR XG2025 + AnarchyGooD // PLUGIN BY AnarchyGooD // NEW CODE
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @Override
     public void onEnable() {
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(new BedDupeListener(), this);
@@ -32,18 +35,22 @@ public final class BedDupe extends JavaPlugin {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private final class BedDupeListener implements Listener {
-    @EventHandler
-    public void onPlayer(PlayerInteractEvent event) {
-        Player p = event.getPlayer();
-        Block block = event.getClickedBlock();
-        if (block.getType().equals(Material.BED_BLOCK) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-            int rng = (int)Math.round(Math.random() * 100);
-                if (rng < getConfig().getInt("probability-percentage")) {
-                    block.getWorld().dropItemNaturally(block.getLocation().add(0, 1, 0), p.getInventory().getItemInMainHand());
+
+        @EventHandler
+        public void onRightClick(PlayerInteractEvent event) {
+            Player p = event.getPlayer();
+            Block block = event.getClickedBlock();
+            if(event.getClickedBlock() == null) return;
+            if (block.getType().equals(Material.BED_BLOCK) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+                if (!(event.getPlayer().getInventory().getItemInMainHand().getType() == Material.AIR)) {
+                int rng = (int)Math.round(Math.random() * 100);
+                    if (rng < getConfig().getInt("probability-percentage")) {
+                        block.getWorld().dropItemNaturally(block.getLocation().add(0, 1, 0), p.getInventory().getItemInMainHand());
+                    }
+                }
             }
         }
     }
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

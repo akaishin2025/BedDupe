@@ -6,7 +6,7 @@
 
     <groupId>me.akaishin</groupId>
     <artifactId>BedDupe</artifactId>
-    <version>1.0-BETA</version>
+    <version>2.1-update</version>
     <packaging>jar</packaging>
 
     <name>BedDupe</name>
