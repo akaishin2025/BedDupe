@@ -1,7 +1,7 @@
 name: BedDupe
 version: ${project.version}
 main: me.akaishin.beddup.BedDupe
-api-version: 1.12.2
+api-version: 1.19
 authors: [ akaishin ]
 description: plugin de dupeo con camas brutal
 commands:
